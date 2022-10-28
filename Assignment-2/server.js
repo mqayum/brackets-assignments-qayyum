@@ -12,7 +12,7 @@ app.get("/users",(req, res)=>{
 })
 app.get("/user/:id", (req, res)=>{
     res.send(
-        getUserByID(req.params.id)==null ? "User Not Found" : getUser(req.params.id)
+        getUserByID(req.params.id)==null ? "User Not Found" : getUserByID(req.params.id)
         );
 })
 app.post("/user/add", (req, res)=>{
