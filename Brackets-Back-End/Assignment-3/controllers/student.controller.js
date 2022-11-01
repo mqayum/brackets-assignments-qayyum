@@ -15,7 +15,9 @@ const getStudentByID = (id) => {
 }
 const addStudent = (student) => {
     let data = getAllStudents();
-    let lastID = data[data.length-1].id;    
+    let lastID = 0;
+    if (data.length > 0)
+        lastID = data[data.length-1].id;   
     student.id = ++lastID;
     data.push(student);
 

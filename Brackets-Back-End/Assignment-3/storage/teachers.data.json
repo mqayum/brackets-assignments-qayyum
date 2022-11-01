@@ -1,0 +1,14 @@
+[
+	{
+		"name": "Sir Zain",
+		"role": "Instructor",
+		"course": "Back-End",
+		"id": 1
+	},
+	{
+		"name": "Sir Faiq",
+		"role": "Instructor",
+		"course": "Front-End",
+		"id": 2
+	}
+]

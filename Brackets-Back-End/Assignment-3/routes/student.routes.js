@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const {getAllStudents,addStudent,getStudentByID,updateStudent,deleteStudent} = require("../controllers/student.controllers");
+
+const {getAllStudents,addStudent,getStudentByID,updateStudent,deleteStudent} = require("../controllers/student.controller");
 
 
 router.get("/all",(req, res)=>{
@@ -13,6 +14,7 @@ router.get("/:id", (req, res)=>{
 })
 router.post("/add", (req, res)=>{
     addStudent(req.body)
+    res.send("Student added successfully");
 })
 router.put("/edit/:id", (req,res)=>{
     res.send(updateStudent(req.params.id, req.body));
