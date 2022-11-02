@@ -1,0 +1,60 @@
+@font-face {
+    font-family: "Orbitron";
+    src: url(./fonts/Orbitron-VariableFont_wght.ttf);
+}
+*{
+    padding: 0;
+    margin: 0;
+}
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+}
+#clock{
+    width: 60%;
+    border: 1px solid black;
+}
+
+#time, #date {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 10em;
+    font-family: "Orbitron";
+    color: blue;
+    text-shadow: 5px 5px 20px rgb(72, 75, 112);
+}
+#date{
+    font-size: 3em;
+}
+#time>span{
+    padding: 5px;
+    /* border: 1px solid black; */
+}
+#secMode{
+    display: flex;
+    flex-direction: column;
+    width: 15%;
+    margin-left: 0.3em;
+}
+#ampm, #seconds, #mode{
+    font-size: 0.35em;
+    font-weight: bolder;
+    /* border: 1px solid black; */
+}
+
+#ampm{
+    padding-left: 0.35em;
+}
+#dev{
+    color:rgba(0, 0, 60, 0.6);
+    font-family: "Orbitron";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin-bottom: 1em;
+    margin-right: 2em;
+}
