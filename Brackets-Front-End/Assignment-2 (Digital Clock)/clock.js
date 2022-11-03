@@ -14,7 +14,7 @@ let hours = datetime.getHours();
 let ampm = "";
 
 
-let mode = 1 //0 mean 24-Hour Time, 1 means 12-Hour Time
+let mode = 0 //0 mean 24-Hour Time, 1 means 12-Hour Time
 
 const getDayName = (day_num) => {
     const names = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
@@ -22,7 +22,7 @@ const getDayName = (day_num) => {
 }
 const getMonName = (month) => {
     const names = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-    return names[month-1];
+    return names[month];
 }
 const startClock = () => {
     setInterval(()=> {
