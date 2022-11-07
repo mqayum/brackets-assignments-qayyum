@@ -1,0 +1,14 @@
+[
+	{
+		"class_duration": "2 Hours",
+		"room": "F12",
+		"id": 1,
+		"teacher_id": 1,
+		"student_ids": [
+			1,
+			2,
+			3,
+			4
+		]
+	}
+]

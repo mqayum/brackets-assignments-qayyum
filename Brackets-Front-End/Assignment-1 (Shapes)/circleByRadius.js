@@ -1,4 +1,4 @@
-let radius = 10;
+let radius = 20;
 let ch = "*";
 let circleArr = [];
 for (let i = 0; i <= radius*2; i++) {

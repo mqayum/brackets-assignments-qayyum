@@ -1,6 +1,6 @@
-let text = "bilal"; //Enter String to Convert into Pattern
-const sym = "A" //Enter Symbol to display
-const size = 7; //size must be Odd number (5 or 7 is recommended)
+let text = "z"; //Enter String to Convert into Pattern
+const sym = "$" //Enter Symbol to display
+const size = 10; //size must be Odd number (5 or 7 is recommended)
 
 
 const generateAlphabetLine = (ch, line, row) =>{

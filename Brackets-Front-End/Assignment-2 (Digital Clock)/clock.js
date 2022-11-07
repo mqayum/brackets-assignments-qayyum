@@ -1,9 +1,12 @@
+
+
 let secDiv = document.getElementById("seconds");
 let minDiv = document.getElementById("minutes");
 let hourDiv = document.getElementById("hours");
 let ampmDiv = document.getElementById("ampm");
 let modeDiv = document.getElementById("mode");
 let dateDiv = document.getElementById("date");
+
 
 let datetime = new Date();
 
