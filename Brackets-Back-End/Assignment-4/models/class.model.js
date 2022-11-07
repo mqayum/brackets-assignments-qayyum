@@ -1,10 +1,10 @@
 const { default: mongoose } = require("mongoose");
-const Student = require("../schemas/students.schema");
+const Class = require("../schemas/classes.schema");
 
 
 const create = async (data) => {
     try{
-        const stu = new Student(data);
+        const stu = new Class(data);
         return await stu.save();
     }
     catch(err){
@@ -14,7 +14,7 @@ const create = async (data) => {
 }
 const getAll = async () => {
     try{
-        return await Student.find({});
+        return await Class.find({});
     }
     catch(err){
         return err;
@@ -22,7 +22,7 @@ const getAll = async () => {
 }
 const getById = async (id) => {
     try{
-        return await Student.findById(id);
+        return await Class.findById(id);
     }
     catch(err){
         return err;
@@ -31,7 +31,7 @@ const getById = async (id) => {
 }
 const removeById = async (id) => {
     try{
-        return await Student.findByIdAndDelete({_id: id});
+        return await Class.findByIdAndDelete({_id: id});
     }
     catch(err){
         return err;
@@ -39,7 +39,7 @@ const removeById = async (id) => {
 }
 const updateById = async (id, data) => {
     try{
-        return await Student.updateOne({_id: id}, data);
+        return await Class.updateOne({_id: id}, data);
     }
     catch(err){
         return err;
@@ -47,7 +47,7 @@ const updateById = async (id, data) => {
 }
 const removeMany = async (filter) => {
     try{
-        return await Student.deleteMany(filter);
+        return await Class.deleteMany(filter);
     }
     catch(err){
         return err;
@@ -55,7 +55,7 @@ const removeMany = async (filter) => {
 }
 const updateMany = async (filter, data) => {
     try{
-        return await Student.updateMany(filter, data);
+        return await Class.updateMany(filter, data);
     }
     catch(err){
         return err;

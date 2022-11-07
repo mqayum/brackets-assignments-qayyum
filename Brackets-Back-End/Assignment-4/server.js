@@ -9,6 +9,7 @@ mongoose.connect(connectStr,{ useNewUrlParser: true, useUnifiedTopology: true })
     console.log("Connection with MongoDB failed: "+err);
 })
 
+const PORT_NO = 9999;
 const app = express();
 app.use(express.json());
 
@@ -24,6 +25,6 @@ app.get("/",(req, res)=>{
     res.send("Welcome to my page");
 })
 
-app.listen(9999,()=>{
-    console.log("server is listening");
+app.listen(PORT_NO,()=>{
+    console.log("server is listening at port "+PORT_NO);
 });

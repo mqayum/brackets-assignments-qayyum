@@ -1,68 +1,170 @@
-const fs = require("fs");
-const {getAllStudents} = require("./student.controller");
-const {getTeacherByID} = require("./teacher.controller");
+const Class = require("../models/class.model");
+const Student = require("../models/student.model");
+const Teacher = require("../models/teacher.model");
 
-const getAllClasss = () => {
-    let data = fs.readFileSync("./storage/classes.data.json","utf-8")
-    return JSON.parse(data);
+const newClass = async (req, res) => {    
+    let classData = req.body;
+    try{
+        //to randomly assign teacher to class
+        const teachers = await Teacher.getAll();
+        const teacherIDs = teachers.map((teacher)=>teacher._id);
+        let randIndex = Math.floor(Math.random() * teacherIDs.length);
+        classData.teacher_id = teacherIDs[randIndex];
+
+        //to assign all students to class
+        const students = await Student.getAll();
+        const studentIDs = students.map((student)=>student._id);
+        classData.student_ids = studentIDs;
+
+    }
+    catch(err){
+        return res.status(500).json({
+            message: "Error collecting data",
+            error: err
+        })
+    }
+    
+    Class.create(classData)
+    .then((classData)=>{
+        return res.status(201).json({
+            message: "Class Successfully Created",
+            data: classData
+        })
+    }).catch((err)=>{
+        return res.status(500).json({
+            message: "Error while creating new class",
+            error: err
+        })
+    });
+};
+
+const getAllClasses = (req, res) => {
+    Class.getAll()
+    .then((classesData)=>{
+        return res.status(200).json({
+            message: "Success",
+            data: classesData
+        })
+    }).catch((err)=>{
+        return res.status(500).json({
+            message: "Error while getting classes",
+            error: err
+        })
+    });
 }
-const getClassByID = (id) => {
-    let data = getAllClasss();
-    let foundClass = data.find(cls => cls.id == id);
-    if(foundClass)
-        return foundClass
-    else
-        return null;
 
-}
-const addClass = (cls) => {
-    let data = getAllClasss();
-    let lastID = 0;
-    if (data.length > 0)
-        lastID = data[data.length-1].id;    
-    cls.id = ++lastID;
-    let students = getAllStudents();
-    let teacher = getTeacherByID(1);
-    let student_ids = students.map(student => student.id);
+const getClassByID = (req,res) => {
+    Class.getById(req.params.id)
+    .then((data)=>{
 
-    cls.teacher_id = teacher.id;
-    cls.student_ids = student_ids;
-    data.push(cls);
-
-    data = JSON.stringify(data, null, "\t");
-    fs.writeFileSync("./storage/classes.data.json",data,"utf8");
-}
-const updateClass = (id, newData) => {
-    let data = getAllClasss();
-    let cls = data.find(cls=> cls.id == id);
-
-    if(cls){
-        for (const prop in newData){
-            cls[prop] = newData[prop];
+        if(data){
+            return res.status(200).json({
+                message: "Class Found Successfull",
+                data: data
+            })
         }
-        data = JSON.stringify(data, null, "\t");
-        fs.writeFileSync("./storage/classes.data.json",data,"utf8");
+        else{
+            return res.status(200).json({
+                message: "Class Not Found",
+                data: data
+            })
+        }
         
-        return "Class Updated Successfully";
-    }
-    else{
-        return  "Class Not Found";
-    }
-    
+    }).catch((err)=>{
+        return res.status(500).json({
+            message: "Error While Finding Class Data",
+            error: err
+        })
+    }); 
 }
-const deleteClass = (id) => {
-    let data = getAllClasss();
-    // let foundClass = data.find(cls => cls.id == id);
 
-    let modifiedData = data.filter(cls => cls.id != id);
-    
-    if(modifiedData.length < data.length ){
-        modifiedData = JSON.stringify(modifiedData, null, "\t");
-        fs.writeFileSync("./storage/classes.data.json",modifiedData,"utf8");
-        return "Class Deleted Sucessfully"
-    }
-    else{
-        return "Class Not Deleted"
-    }
+const updateClassByID = (req, res) => {
+    Class.updateById(req.params.id, req.body)
+    .then((result)=>{
+        
+        if(result.matchedCount)
+            return res.status(200).json({
+                message: "Class Updated Successfully",
+            })
+        else
+            return res.status(200).json({
+                message: "Class Not Found with ID: " + req.params.id,
+            })
+        
+    }).catch((err)=>{
+        return res.status(500).json({
+            message: "Error While Updating Class",
+            error: err
+        })
+    });    
 }
-module.exports = { getAllClasss, addClass, getClassByID, updateClass, deleteClass };
+const deleteClassByID = (req, res) => {
+    Class.removeById(req.params.id)
+    .then((data)=>{
+        if(data)
+            return res.status(200).json({
+                message: "Class Deleted Successfully",
+                data: data
+            })
+        else
+            return res.status(200).json({
+                message: "Class Not Found with ID: " + req.params.id,
+                data: data
+            })
+    }).catch((err)=>{
+
+        return res.status(500).json({
+            message: "Error While Deleting Class",
+            error: err
+        })
+    });
+}
+const deleteClasses = (req, res) => {
+    let type = req.params.type;
+    let val = req.params.value;
+    let filter = {[type]: val};
+
+    Class.removeMany(filter)
+    .then((result)=>{
+
+        if(result.deletedCount)
+            return res.status(200).json({
+                message: result.deletedCount+" Class(s) Deleted Successfully"
+            })
+        else
+            return res.status(200).json({
+                message: "Class(s) Not Found with "+type+" : "+ val
+            })
+
+    }).catch((err)=>{
+        return res.status(500).json({
+            message: "Error While Deleting Multiple Classes",
+            error: err
+        })
+    });
+}
+const updateClasses = (req, res) => {
+    let type = req.params.type;
+    let val = req.params.value;
+    let filter = {[type]: val};
+
+    Class.updateMany(filter, req.body)
+    .then((result)=>{
+        console.log(result);
+        if(result.matchedCount)
+            return res.status(200).json({
+                message: result.matchedCount+" Class(s) Updated Successfully"
+            })
+        else
+            return res.status(200).json({
+                message: "Class(s) Not Found with "+type+" : "+ val
+            })
+
+    }).catch((err)=>{
+        return res.status(500).json({
+            message: "Error While Updating Multiple Classes",
+            error: err
+        })
+    });
+}
+module.exports = { newClass, getAllClasses, getClassByID, updateClassByID, deleteClassByID, deleteClasses, updateClasses };

@@ -1,26 +1,16 @@
 const express = require('express');
 const router = express.Router();
 
-const {getAllTeachers,addTeacher,getTeacherByID,updateTeacher,deleteTeacher} = require("../controllers/teacher.controller");
+const teacherController = require("../controllers/teacher.controller");
+
+router.post("/new", teacherController.newTeacher);
+router.get("/id/:id", teacherController.getTeacherByID);
+router.get("/all", teacherController.getAllTeachers);
+router.put("/edit/:id", teacherController.updateTeacherByID);
+router.delete("/delete/:id", teacherController.deleteTeacherByID);
+router.delete("/deleteManyBy/:type/:value", teacherController.deleteTeachers);
+router.put("/updateManyBy/:type/:value", teacherController.updateTeachers);
 
 
-router.get("/all",(req, res)=>{
-    res.send(getAllTeachers());
-})
-router.get("/:id", (req, res)=>{
-    res.send(
-        getTeacherByID(req.params.id)==null ? "Teacher Not Found" : getTeacherByID(req.params.id)
-        );
-})
-router.post("/add", (req, res)=>{
-    addTeacher(req.body)
-    res.send("Teacher added successfully");
-})
-router.put("/edit/:id", (req,res)=>{
-    res.send(updateTeacher(req.params.id, req.body));
-})
-router.delete("/delete/:id", (req,res)=>{
-    res.send(deleteTeacher(req.params.id));
-})
 
 module.exports = router;

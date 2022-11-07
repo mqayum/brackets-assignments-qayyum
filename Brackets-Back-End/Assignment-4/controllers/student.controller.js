@@ -19,10 +19,9 @@ const newStudent = (req, res) => {
 };
 
 const getAllStudents = (req, res) => {
-    // return getStudents();
     Student.getAll()
     .then((studentsData)=>{
-        return res.status(201).json({
+        return res.status(200).json({
             message: "Success",
             data: studentsData
         })
@@ -33,63 +32,119 @@ const getAllStudents = (req, res) => {
         })
     });
 }
-const getStudentByID = (id) => {
-    // let data = getAllStudents();
-    // let foundStudent = data.find(student => student.id == id);
-    // if(foundStudent)
-    //     return foundStudent
-    // else
-    //     return null;
 
+const getStudentByID = (req,res) => {
+    Student.getById(req.params.id)
+    .then((data)=>{
+
+        if(data){
+            return res.status(200).json({
+                message: "Student Found Successfull",
+                data: data
+            })
+        }
+        else{
+            return res.status(200).json({
+                message: "Student Not Found",
+                data: data
+            })
+        }
+        
+    }).catch((err)=>{
+        return res.status(500).json({
+            message: "Error While Finding Student Data",
+            error: err
+        })
+    }); 
 }
-// const addStudent = (student) => {
-//     let data = getAllStudents();
-//     let lastID = 0;
-//     if (data.length > 0)
-//         lastID = data[data.length-1].id;   
-//     student.id = ++lastID;
-//     data.push(student);
 
-//     data = JSON.stringify(data, null, "\t");
-//     fs.writeFileSync("./storage/students.data.json",data,"utf8");
-// }
 const updateStudentByID = (req, res) => {
     Student.updateById(req.params.id, req.body)
-    .then((resolve)=>{
-        res.send("Student Updated");
+    .then((result)=>{
+        
+        if(result.matchedCount)
+            return res.status(200).json({
+                message: "Student Updated Successfully",
+            })
+        else
+            return res.status(200).json({
+                message: "Student Not Found with ID: " + req.params.id,
+            })
+        
     }).catch((err)=>{
-        res.send("Error Updating Record");
+        return res.status(500).json({
+            message: "Error While Updating Student",
+            error: err
+        })
     });    
 }
 const deleteStudentByID = (req, res) => {
     Student.removeById(req.params.id)
-    .then((resolve)=>{
-        res.send("Student Deleted");
+    .then((data)=>{
+        if(data)
+            return res.status(200).json({
+                message: "Student Deleted Successfully",
+                data: data
+            })
+        else
+            return res.status(200).json({
+                message: "Student Not Found with ID: " + req.params.id,
+                data: data
+            })
     }).catch((err)=>{
-        res.send("Error Deleting Record");
+
+        return res.status(500).json({
+            message: "Error While Deleting Student",
+            error: err
+        })
     });
 }
 const deleteStudents = (req, res) => {
     let type = req.params.type;
     let val = req.params.value;
     let filter = {[type]: val};
+
     Student.removeMany(filter)
-    .then((resolve)=>{
-        res.send("Multiple Students Deleted");
+    .then((result)=>{
+
+        if(result.deletedCount)
+            return res.status(200).json({
+                message: result.deletedCount+" Student(s) Deleted Successfully"
+            })
+        else
+            return res.status(200).json({
+                message: "Student(s) Not Found with "+type+" : "+ val
+            })
+
     }).catch((err)=>{
-        res.send("Error Deleting Multiple Records");
+        return res.status(500).json({
+            message: "Error While Deleting Multiple Students",
+            error: err
+        })
     });
 }
 const updateStudents = (req, res) => {
     let type = req.params.type;
     let val = req.params.value;
     let filter = {[type]: val};
-    
+
     Student.updateMany(filter, req.body)
-    .then((resolve)=>{
-        res.send("Multiple Students Updated");
+    .then((result)=>{
+        console.log(result);
+        if(result.matchedCount)
+            return res.status(200).json({
+                message: result.matchedCount+" Student(s) Updated Successfully"
+            })
+        else
+            return res.status(200).json({
+                message: "Student(s) Not Found with "+type+" : "+ val
+            })
+
     }).catch((err)=>{
-        res.send("Error Updating Multiple Records");
+        return res.status(500).json({
+            message: "Error While Updating Multiple Students",
+            error: err
+        })
     });
 }
 module.exports = { newStudent, getAllStudents, getStudentByID, updateStudentByID, deleteStudentByID, deleteStudents, updateStudents };
