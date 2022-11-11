@@ -1,8 +1,9 @@
 const quote = document.getElementById("quote");
 const author = document.getElementById("author");
 const body = document.getElementsByTagName("body")[0];
+
 const fonts = ['Acme','BebasNeue','Caveat','Cookie','DancingScript','GreatVibes','IndieFlower','IslandMoments','Kalam','Lato','Lobster','Orbitron','Pacifico','Righteous','RubikBubbles','Sacramento','Satisfy','SpecialElite','SquarePeg','Updock','Whisper'];
-const categories = ['amazing', 'art', 'attitude', 'beauty', 'best', 'change', 'cool', 'courage', 'death', 'dreams', 'education', 'experience', 'failure', 'faith', 'family', 'famous', 'fitness', 'forgiveness', 'friendship', 'future', 'god', 'good', 'great', 'happiness', 'health', 'hope', 'imagination', 'inspirational', 'learning', 'life', 'love', 'mom', 'money', 'morning', 'success'];
+const categories = ['amazing', 'art', 'attitude', 'beauty', 'best', 'change', 'courage', 'death', 'dreams', 'education', 'experience', 'failure', 'family', 'famous', 'forgiveness', 'friendship', 'future', 'good', 'great', 'happiness', 'health', 'hope', 'imagination', 'inspirational', 'learning', 'life', 'love', 'mom', 'money', 'morning', 'success'];
 
 const getQuotation = async (url) => {
     try{
