@@ -11,62 +11,62 @@ const body:HTMLElement = document.getElementsByTagName("body")[0];
 const fonts:string[] = ['Acme','BebasNeue','Caveat','Cookie','DancingScript','GreatVibes','IndieFlower','IslandMoments','Kalam','Lato','Lobster','Orbitron','Pacifico','Righteous','RubikBubbles','Sacramento','Satisfy','SpecialElite','SquarePeg','Updock','Whisper'];
 const categories:string[] = ['amazing', 'art', 'attitude', 'beauty', 'best', 'change', 'courage', 'death', 'dreams', 'education', 'experience', 'failure', 'family', 'famous', 'forgiveness', 'friendship', 'future', 'good', 'great', 'happiness', 'health', 'hope', 'imagination', 'inspirational', 'learning', 'life', 'love', 'mom', 'money', 'morning', 'success'];
 
-const getQuotation = async (url:string):Promise<void> => {
-    try{
-        let response:Response = await fetch(url,{
-            headers: {
-                'Content-Type': 'application/json',
-                'X-Api-Key': 'Vs+S8C7kMegBlpN0hx+JtQ==iGgOnhyDXswshqZe'
-            }
-        })
-        let quo:JSON = await response.json();
-        console.log(quo);
-        
-        if(quo[0].quote.length < 150)
-            quote.innerHTML = quo[0].quote;
-        else{
-            quote.innerHTML = quo[0].quote;
-            quote.style.fontSize = "30px";
-        }
-        
-        author.innerHTML = `"${quo[0].author}"`;
 
-        //laoding random font
-        let randIndex:number = Math.floor(Math.random() * fonts.length);
-        const font:FontFace = new FontFace(fonts[randIndex], "url(./fonts/"+fonts[randIndex]+".ttf)");
-        
-        document.fonts.add(font);
-        font.load().then((data:FontFace)=>{
-            quote.style.fontFamily = data.family;
-        }).catch((err:any)=>{
-            console.log(err);
-        });
-        
-    }
-    catch(err:any){
-        console.log(err);
-    }
+
+interface FetchCallResponse extends Response{    
+};
+
+interface ApiResponseQuote {
+    author: string,
+    category: string,
+    quote: string
+};
+
+type DataUrl = (string | ArrayBuffer | null);
+
+
+
+const getQuotation = (url:string):void => {
     
+    fetch(url,{
+        headers: {
+            'Content-Type': 'application/json',
+            'X-Api-Key': 'Vs+S8C7kMegBlpN0hx+JtQ==iGgOnhyDXswshqZe'
+        }
+    }).then((response:FetchCallResponse)=>{
+        
+        response.json().then((quo:ApiResponseQuote[])=>{
+
+            if(quo[0].quote.length < 150)
+            quote.innerHTML = quo[0].quote;
+            else{
+                quote.innerHTML = quo[0].quote;
+                quote.style.fontSize = "30px";
+            }
+            
+            author.innerHTML = `"${quo[0].author}"`;
+        });
+    })
 }
 
-const getBackground = async (url:string):Promise<void> => {
-    try{
-        let response:Response = await fetch(url,{
-            headers: {
-                'Accept': 'image/jpg',
-                'X-Api-Key': 'Vs+S8C7kMegBlpN0hx+JtQ==iGgOnhyDXswshqZe'
+const getBackground = (url:string):void => {
+
+    fetch(url,{
+        headers: {
+            'Accept': 'image/jpg',
+            'X-Api-Key': 'Vs+S8C7kMegBlpN0hx+JtQ==iGgOnhyDXswshqZe'
+        }
+    }).then((response:FetchCallResponse)=>{
+        
+        let reader:FileReader = new FileReader();
+        response.blob().then((data:Blob)=>{
+            reader.readAsDataURL(data);
+            reader.onload = () => {
+                let dataUrl:DataUrl = reader.result;
+                body.style.backgroundImage = "url("+dataUrl+")";
             }
         })
-        let reader:FileReader = new FileReader();
-        reader.readAsDataURL(await response.blob());
-        reader.onload = () => {
-            body.style.backgroundImage = "url("+reader.result+")";
-        }
-    }
-    catch(err:any){
-        console.log(err);
-    }
-    
+    })
 }
 
 
