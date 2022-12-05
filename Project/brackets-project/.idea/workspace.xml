@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="1aa4021e-83d2-4d9e-a035-744796eff9ee" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../../Brackets-Front-End/practice.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/brackets-project.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/.eslintrc.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/.idea/brackets-project.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/next.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/pages/_app.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/pages/api/hello.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/pages/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/pages/signup.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/public/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/public/vercel.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/styles/Home.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/styles/globals.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/.idea/Assignment-7 (Multer File Upload).iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/api/controllers/user.controller.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/api/middlewares/multer.middle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/api/middlewares/verifyToken.middle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/api/models/user.model.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/api/routes/user.routes.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/api/schemas/user.schema.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/config/credentials.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/config/dbConn.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/server.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/uploads/profile-1669028572500.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Brackets-Front-End/Project/Proposal.odt" beforeDir="false" afterPath="$PROJECT_DIR$/../../Project Docs/Proposal.odt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Brackets-Front-End/Project/Proposal.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/../../Project Docs/Proposal.pdf" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2ILZxCovHG1pAGatVpRGgp7exHh" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Qayyum/Documents/Brackets-Assignments/Project/brackets-project/server&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\Qayyum\\Documents\\Brackets-Assignments\\Project\\brackets-project\\client\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Qayyum\Documents\Brackets-Assignments\Project\brackets-project\server" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Qayyum\Documents\Brackets-Assignments\Project\brackets-project\client\pages" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1aa4021e-83d2-4d9e-a035-744796eff9ee" name="Changes" comment="" />
+      <created>1669963077026</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1669963077026</updated>
+      <workItem from="1669963084972" duration="14679000" />
+      <workItem from="1670153961267" duration="1415000" />
+      <workItem from="1670213235289" duration="3229000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+    <option name="exactExcludedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/server/node_modules/sift/src/core.js" />
+        <option value="$PROJECT_DIR$/server/node_modules/sift/src/index.js" />
+        <option value="$PROJECT_DIR$/server/node_modules/sift/src/utils.js" />
+        <option value="$PROJECT_DIR$/server/node_modules/sift/src/core.d.ts" />
+        <option value="$PROJECT_DIR$/server/node_modules/sift/src/index.d.ts" />
+        <option value="$PROJECT_DIR$/server/node_modules/sift/src/utils.d.ts" />
+        <option value="$PROJECT_DIR$/server/node_modules/sift/src/core.js.map" />
+        <option value="$PROJECT_DIR$/server/node_modules/sift/src/index.js.map" />
+        <option value="$PROJECT_DIR$/server/node_modules/sift/src/utils.js.map" />
+        <option value="$PROJECT_DIR$/server/node_modules/sift/src/operations.js" />
+        <option value="$PROJECT_DIR$/server/node_modules/sift/src/operations.d.ts" />
+        <option value="$PROJECT_DIR$/server/node_modules/sift/src/operations.js.map" />
+      </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+</project>

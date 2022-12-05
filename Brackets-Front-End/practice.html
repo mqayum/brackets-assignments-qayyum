@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="text">
+    <script>
+        console.log("script is starting...");
+        const textField = document.getElementById("text");
+        textField.disabled = true;
+        const inputHandler = (e) =>{
+            console.log(e.target.value);
+        }
+        
+        const debounce = (fn, delay) => {
+            let id;
+            console.log("inital value of id: "+id);
+            return function(...args){
+                if (id){
+                    clearTimeout(id)
+                }
+                id = setTimeout( ()=>{
+                    fn(...args);
+                } , delay)
+            }
+        }
+        textField.addEventListener("input", debounce(inputHandler,1000));
+        // textField.addEventListener("input", inputHandler);
+    </script>
+</body>
+</html>
