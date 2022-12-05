@@ -1,8 +1,8 @@
 module.exports  = {
-    dbURI: "mongodb+srv://Qayyum:Qayyum123@cluster0.1pce9mf.mongodb.net/MEETING_DB?retryWrites=true&w=majority",
-    dbURILocal: "mongodb://localhost:27017/MEETING_DB",
-    JWT_SECRET: "ORIANDTHEWILLOFTHEWISP",
-    TWILIO_MSG_SID: "MG7306fe51109707ae8cd686f049b5daae",
-    TWILIO_AUTH: "42d955edf056a9284a1b90c4eead3b98",
-    TWILIO_SID: "ACd7968fb5a1ef860e4d8d12309d54684c"
+    dbURI: `mongodb+srv://${process.env.DB_USER_NAME}:${process.env.DB_PASSWORD}@cluster0.1pce9mf.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`,
+    dbURILocal: `mongodb://localhost:27017/${process.env.DB_NAME}`,
+    JWT_SECRET: process.env.JWT_SECRET,
+    TWILIO_MSG_SID: process.env.TWILIO_MSG_SID,
+    TWILIO_AUTH: process.env.TWILIO_AUTH,
+    TWILIO_SID: process.env.TWILIO_SID
 }
