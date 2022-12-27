@@ -1,0 +1,14 @@
+
+.dropdown:hover > a, .dropdown:hover > button, .dropdown:hover{
+    background-color: cornflowerblue;
+    color: white;
+    transition: 500ms;
+}
+
+.dropdown:hover > .dropdown_content {
+    display: block;
+}
+.dropdown:hover > .dropdown_content a:hover{
+    background-color: cornflowerblue;
+    color: white;
+}

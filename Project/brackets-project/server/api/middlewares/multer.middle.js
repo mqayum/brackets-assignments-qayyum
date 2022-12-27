@@ -7,7 +7,6 @@ const storage = multer.diskStorage({
     filename: function (req, file, cb){
         const originalExtension = file.originalname.split(".").pop();
         const filename = file.fieldname + "-" + Date.now() + "."+originalExtension;
-        req.fileName = filename;
         cb(null, filename);
     }
 })
@@ -23,22 +22,12 @@ const filterFunc = (req, file, cb) => {
     }
 }
 const limitsObj = {
-    fileSize: 200*1024, //200KB
+    fileSize: 1024*1024, //1MB
 }
 
-module.exports = uploadFile = (req, res, next) => {
-    const upload = multer({storage: storage, fileFilter: filterFunc, limits: limitsObj}).single("profile");
+const upload = multer({storage: storage, fileFilter: filterFunc, limits: limitsObj})
 
-    upload(req, res, function (err) {
-        if (err){
-            return res.status(401).json({
-                message: "UPLOAD FAILED: "+err.message
-            })
-        }
-        next();
-    })
-}
-
+module.exports = upload;
 
 
 

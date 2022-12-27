@@ -1,12 +1,30 @@
 import '../styles/globals.css'
-import type { AppProps } from 'next/app'
-import Layout from "../components/layout";
-import Head from "next/head";
+import {Provider} from "react-redux"
+import {store} from "../store/store"
+import type {AppPropsWithLayout} from "../types/types"
+import RouteProtector from "../components/application/RouteProtector";
 
-export default function App({ Component, pageProps }: AppProps) {
+import {PersistGate} from "redux-persist/integration/react";
+import {persistor} from "../store/store";
+
+
+export default function App({ Component, pageProps }: AppPropsWithLayout) {
+
+    {/* If Component has getLayout function then return the function,
+     otherwise, return a function that receives a ReactElement as parameter and returns it */}
+    const getLayout = Component.getLayout ?? ((page) => page)
+    const role = Component.requiredRole || null
+
   return (
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
+      <Provider store={store}>
+          <PersistGate persistor={persistor}>
+                    <RouteProtector requiredRole={role}>
+
+                          {/* Following function call will wrap Component in its custom layout, if exists. */}
+                          {getLayout(<Component {...pageProps} />)}
+
+                    </RouteProtector>
+          </PersistGate>
+      </Provider>
   )
 }

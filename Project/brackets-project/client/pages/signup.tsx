@@ -1,96 +1,105 @@
 import axios from "axios";
 import {useRouter} from "next/router";
-import {useState} from "react";
+import {ReactElement, useState} from "react";
+import {BACKEND_URL} from "../config/constants";
+import CenteredFormLayout from "../components/layouts/CenteredFormLayout";
+import {useSignUpMutation} from "../api/userApi";
+import toast, {Toaster} from "react-hot-toast";
+import {setCookie} from "cookies-next";
+import {setAuth} from "../store/authSlice";
 
 const Signup = () => {
-
-    const [firstName,setFirstName] = useState("");
-    const [lastName,setLastName] = useState("");
-    const [username,setUsername] = useState("");
-    const [email,setEmail] = useState("");
-    const [password,setPassword] = useState("");
+    const [signup, {data, error, status}] = useSignUpMutation();
+    const [state, setState] = useState({
+        firstName: "",
+        lastName: "",
+        username: "",
+        phone: "",
+        email: "",
+        password: "",
+    });
     const router = useRouter();
 
-    const submitSignupForm = () => {
-        axios.post('http://localhost:9999/user/signup', {
-            firstName: firstName,
-            lastName: lastName,
-            username: username,
-            email: email,
-            password: password
-        })
-            .then(function (response) {
-                console.log(response)
-                if (response.status === 200){
-                    router.push("/login")
-                }
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
+    const handleChange = (event: { target: { name: string; value: string; }; }) => {
+        const name = event.target.name;
+        const value = event.target.value;
+        setState({ ...state, [name]: value });
+    };
+    const submitSignupForm = async () => {
+        try {
+            const res = await signup(state).unwrap();
+            if (!error){
+                toast.success("Registration Successful.");
+                router.push("/login")
+            }
+        }
+        catch (e) {
+            // @ts-ignore
+            toast.error("Error: "+e.data.message);
+            console.log(e)
+        }
     }
 
     return (
-        <form className="w-full max-w-lg border shadow-md rounded px-8 pt-6 pb-8 mb-12 m-auto mt-12">
-            <div className="flex flex-wrap -mx-3 mb-6">
-                <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                    <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                           htmlFor="grid-first-name">
-                        First Name
-                    </label>
-                    <input
-                        className="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
-                        id="grid-first-name" value={firstName} onChange={(e)=>{setFirstName(e.target.value)}} type="text" placeholder="First Name" />
-                </div>
-                <div className="w-full md:w-1/2 px-3">
-                    <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                           htmlFor="grid-last-name">
-                        Last Name
-                    </label>
-                    <input
-                        className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                        id="grid-last-name" value={lastName} onChange={(e)=>{setLastName(e.target.value)}} type="text" placeholder="Last Name" />
-                </div>
-            </div>
-            <div className="flex flex-wrap -mx-3 mb-6">
-                <div className="w-full px-3">
-                    <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                           htmlFor="grid-username">
-                        Username
-                    </label>
-                    <input
-                        className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                        id="grid-username" value={username} onChange={(e)=>{setUsername(e.target.value)}} type="text" placeholder="Username" />
-                </div>
-            </div>
-            <div className="flex flex-wrap -mx-3 mb-6">
-                <div className="w-full px-3">
-                    <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                           htmlFor="grid-email">
-                        Email
-                    </label>
-                    <input
-                        className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                        id="grid-email" value={email} onChange={(e)=>{setEmail(e.target.value)}} type="email" placeholder="Email" />
-                </div>
-            </div>
-            <div className="flex flex-wrap -mx-3 mb-6">
-                <div className="w-full px-3">
-                    <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                           htmlFor="grid-password">
-                        Password
-                    </label>
-                    <input
-                        className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                        id="grid-password" value={password} onChange={(e)=>{setPassword(e.target.value)}} type="password" placeholder="******************" />
+        <div className="hero min-h-screen bg-base-200">
+            <Toaster />
+            <div className="card flex-shrink-0 w-full max-w-sm lg:max-w-lg shadow-2xl bg-base-100">
+                <div className="card-body">
+                    <div className="lg:flex lg:justify-between">
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">First Name</span>
+                            </label>
+                            <input type="text" placeholder="first name" className="input input-bordered" name="firstName" id="firstName" value={state.firstName} onChange={handleChange} />
+                        </div>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Last Name</span>
+                            </label>
+                            <input type="text" placeholder="last name" className="input input-bordered" name="lastName" id="lastName" value={state.lastName} onChange={handleChange} />
+                        </div>
+                    </div>
+
+                    <div className="lg:flex lg:justify-between">
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Username</span>
+                            </label>
+                            <input type="text" placeholder="user name" className="input input-bordered" name="username" id="username" value={state.username} onChange={handleChange} />
+                        </div>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Phone</span>
+                            </label>
+                            <input type="text" placeholder="phone" className="input input-bordered" name="phone" id="phone" value={state.phone} onChange={handleChange} />
+                        </div>
+                    </div>
+
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text">Email</span>
+                        </label>
+                        <input type="text" placeholder="email address" className="input input-bordered" name="email" id="email" value={state.email} onChange={handleChange} />
+                    </div>
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text">Password</span>
+                        </label>
+                        <input type="password" placeholder="password" className="input input-bordered" name="password" id="password" value={state.password} onChange={handleChange} />
+                    </div>
+                    <div className="form-control mt-6">
+                        <button className="btn btn-primary" onClick={submitSignupForm}>Sign Up</button>
+                    </div>
                 </div>
             </div>
-            <button
-                className="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                type="button" onClick={submitSignupForm}>
-                Sign Up
-            </button>
-        </form>
+        </div>
+    )
+}
+Signup.getLayout = (page: ReactElement) => {
+    return(
+        <CenteredFormLayout>
+            {page}
+        </CenteredFormLayout>
     )
 }
 export default Signup;

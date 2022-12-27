@@ -1,61 +1,90 @@
-import axios from "axios";
 import {useRouter} from "next/router";
-import {useState} from "react";
+import {ReactElement, useState} from "react";
+import {useDispatch} from "react-redux"
+import CenteredFormLayout from "../components/layouts/CenteredFormLayout";
+import {useGetUserQuery, useLoginMutation} from "../api/userApi";
+import toast,{Toaster} from "react-hot-toast";
+import {setCookie} from "cookies-next";
+import {setAuth} from "../store/authSlice";
+
 
 const Login = () => {
+    const [login, {error, data, status, isLoading}] = useLoginMutation()
 
-    const [username,setUsername] = useState("");
-    const [password,setPassword] = useState("");
+    const [state, setState] = useState({
+        username: "",
+        password: "",
+    });
+
     const router = useRouter();
+    const dispatch = useDispatch();
 
-    const submitLoginForm = () => {
-        axios.post('http://localhost:9999/user/login', {
-            username: username,
-            password: password
-        })
-            .then(function (response) {
-                console.log(response)
-                if (response.status === 200){
+    const handleChange = (event: { target: { name: string; value: string; }; }) => {
+        const name = event.target.name;
+        const value = event.target.value;
+        setState({ ...state, [name]: value });
+    };
+    const submitLoginForm = async () => {
+        try {
+            const res = await login(state).unwrap();
+            if (!error){
+                console.log(res)
+                if (res.userId){
+                    toast("OTP Verification Required");
+                    await router.push("/verify/"+res.userId)
+                }
+                else{
+                    toast.success("Logged In Successfully.");
+                    const tokenString = res.token;
+                    setCookie("token",tokenString, {
+                        maxAge: 3600*24,
+                        sameSite: true,
+                    })
+                    dispatch(setAuth(true))
+                    // dispatch(setLoggedInUser(response.data.user))
                     router.push("/")
                 }
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
+            }
+        }
+        catch (e) {
+            toast.error("Something is Wrong");
+            console.log(e)
+        }
     }
 
     return (
-        <div className="w-full max-w-xs m-auto mt-24 mb-28">
-            <form className="bg-white border shadow-md rounded px-8 pt-6 pb-8 mb-4">
-                <div className="mb-4">
-                    <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="username">
-                        Username
+        <div className="hero min-h-screen bg-base-200">
+            <Toaster />
+        <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+            <div className="card-body">
+                <div className="form-control">
+                    <label className="label">
+                        <span className="label-text">Username</span>
                     </label>
-                    <input
-                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        id="username" value={username} onChange={(e)=>{setUsername(e.target.value)}} type="text" placeholder="Username" />
+                    <input type="text" placeholder="username" className="input input-bordered" name="username" id="username" value={state.username} onChange={handleChange} />
                 </div>
-                <div className="mb-6">
-                    <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="password">
-                        Password
+                <div className="form-control">
+                    <label className="label">
+                        <span className="label-text">Password</span>
                     </label>
-                    <input
-                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-                        id="password" value={password} onChange={(e)=>{setPassword(e.target.value)}} type="password" placeholder="Password" />
+                    <input type="password" placeholder="password" className="input input-bordered" name="password" id="password" value={state.password} onChange={handleChange} />
+                    <label className="label">
+                        <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
+                    </label>
                 </div>
-                <div className="flex items-center justify-between">
-                    <button
-                        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                        type="button" onClick={submitLoginForm}>
-                        Sign In
-                    </button>
-                    <a className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800"
-                       href="#">
-                        Forgot Password?
-                    </a>
+                <div className="form-control mt-6">
+                    <button className="btn btn-primary" onClick={submitLoginForm}>Login</button>
                 </div>
-            </form>
+            </div>
         </div>
+    </div>
+    )
+}
+Login.getLayout = (page: ReactElement) => {
+    return(
+        <CenteredFormLayout>
+            {page}
+        </CenteredFormLayout>
     )
 }
 export default Login;

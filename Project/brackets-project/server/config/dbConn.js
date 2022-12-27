@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
-const {dbURI} = require("./credentials")
+const {dbURI, dbURILocal} = require("./credentials")
 const dBConnect = () => {
-    mongoose.connect(dbURI)
+    mongoose.connect(dbURILocal)
         .then(() => console.log('DB connected...'))
         .catch(err => console.log(err))
 }
