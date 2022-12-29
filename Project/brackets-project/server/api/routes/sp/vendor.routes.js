@@ -36,4 +36,20 @@ router.get("/product/listed",
     authorizeTo(SYSTEM_ROLES_ENUM.VENDOR),
     ProductController.getListedProducts);
 
+router.get("/product/:productId",
+    VerifyToken,
+    authorizeTo(SYSTEM_ROLES_ENUM.VENDOR),
+    ProductController.getProductById);
+
+router.patch("/product/:productId/edit",
+    VerifyToken,
+    authorizeTo(SYSTEM_ROLES_ENUM.VENDOR),
+    upload.array("productImages", 4),
+    ProductController.updateProduct);
+
+router.delete("/product/:productId",
+    VerifyToken,
+    authorizeTo(SYSTEM_ROLES_ENUM.VENDOR),
+    ProductController.deleteProduct);
+
 module.exports = router;

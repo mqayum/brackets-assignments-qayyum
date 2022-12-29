@@ -1,9 +1,34 @@
 const Product = require("../schemas/product.schema")
+const mongoose = require("mongoose");
+
 
 const addProduct = async (data) => {
     try {
         const product = new Product(data)
         return product.save();
+    }
+    catch (e) {
+        throw e;
+    }
+}
+const findProductById = async (productId) => {
+    try {
+        const pipeline = [
+            {
+                '$match': {
+                    '_id': new mongoose.Types.ObjectId(productId)
+                }
+            }, {
+                '$lookup': {
+                    'from': 'service_providers',
+                    'localField': 'vendorId',
+                    'foreignField': '_id',
+                    'as': 'vendor'
+                }
+            }
+        ]
+        const product = await Product.aggregate(pipeline);
+        return product[0];
     }
     catch (e) {
         throw e;
@@ -48,5 +73,15 @@ const updateProduct = async (id, data) => {
     }
 }
 
+const deleteProduct = async (productId) => {
+    try {
+        const id = new mongoose.Types.ObjectId(productId)
+        return await Product.deleteOne(id)
+    }
+    catch (e) {
+        throw e;
+    }
+}
 
-module.exports = {addProduct, updateProduct, getAllByVendorId}
+
+module.exports = {addProduct, findProductById, updateProduct, deleteProduct, getAllByVendorId}

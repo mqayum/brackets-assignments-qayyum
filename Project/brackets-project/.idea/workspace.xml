@@ -5,166 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1aa4021e-83d2-4d9e-a035-744796eff9ee" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/client/api/productsApi.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/api/spApi.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/api/userApi.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/components/AvatarDropdown.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/components/Carousel.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/components/CategoriesSection.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/components/CategoryCard.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/components/DesignCard.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/components/DesignerCard.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/components/DesignersSection.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/components/HighlightedServices.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/components/Navbar.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/components/NewDesignsSection.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/components/NewProductArrivals.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/components/NotAuthorized.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/components/ProductCard.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/components/StarRating.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/components/TopNav.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/components/application/RouteProtector.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/components/dashboard/AdminDashMenu.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/components/dashboard/CustomerDashMenu.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/components/dashboard/DashNav.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/components/dashboard/DesignerDashMenu.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/components/dashboard/PagePath.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/components/dashboard/Sidebar.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/components/dashboard/VendorDashMenu.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/components/layouts/CenteredFormLayout.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/components/layouts/DashboradLayout.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/config/constants.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/helpers/api/auth.helpers.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/helpers/api/vendor.helper.js.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/helpers/authorization.helper.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/helpers/states.helper.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/middleware.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/pages/_document.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/pages/dashboard/admin/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/pages/dashboard/customer/account.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/pages/dashboard/customer/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/pages/dashboard/customer/profile/edit.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/pages/dashboard/customer/profile/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/pages/dashboard/designer/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/pages/dashboard/designer/profile/edit.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/pages/dashboard/designer/profile/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/pages/dashboard/vendor/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/pages/dashboard/vendor/product/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/pages/dashboard/vendor/product/listed.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/pages/dashboard/vendor/profile/edit.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/pages/dashboard/vendor/profile/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/pages/register/designer.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/pages/register/vendor.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/pages/verify/[id].tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/public/images/slider/slider-1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/public/images/slider/slider-2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/public/images/slider/slider-3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/store/authSlice.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/store/store.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/styles/navbar.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/types/types.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/api/controllers/admin.controller.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/api/controllers/product.controller.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/api/controllers/service_provider.controller.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/api/controllers/twilio.controller.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/api/middlewares/authorization.middle.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/api/models/product.model.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/api/models/service_provider.model.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/api/routes/admin/admin.routes.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/api/routes/sp/designer.routes.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/api/routes/sp/sp.routes.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/api/routes/sp/vendor.routes.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/api/routes/twilio.routes.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/api/schemas/product.schema.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/api/schemas/service_provider.schema.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/config/constants.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/uploads/avatar.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/uploads/brandLogo-1672088103160.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/uploads/brandLogo-1672092920003.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/uploads/productImages-1672134097291.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/uploads/productImages-1672134097307.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/uploads/profileImage-1672120818815.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Project Docs/Proposal.odt" beforeDir="false" afterPath="$PROJECT_DIR$/../../Project Docs/Proposal.odt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/components/dashboard/DashProductCard.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/pages/dashboard/vendor/product/edit/[productId].tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/uploads/productImages-1672308553892.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/uploads/productImages-1672308553960.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/Footer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/layouts/homeLayout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/layouts/HomeLayout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/navbar.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/next.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/next.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pages/_app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/_app.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pages/api/hello.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pages/login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/login.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pages/signup.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/signup.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/styles/Home.module.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/styles/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/styles/globals.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/tailwind.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/.idea/Assignment-7 (Multer File Upload).iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/api/controllers/user.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/api/controllers/user.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/api/middlewares/multer.middle.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/api/middlewares/multer.middle.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/api/middlewares/verifyToken.middle.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/api/middlewares/verifyToken.middle.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/api/models/user.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/api/models/user.model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/api/routes/user.routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/api/routes/user.routes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/api/schemas/user.schema.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/api/schemas/user.schema.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/config/credentials.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/config/credentials.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/config/dbConn.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/config/dbConn.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/.bin/uuid" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/.bin/uuid" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/.bin/uuid.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/.bin/uuid.cmd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/.bin/uuid.ps1" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/.bin/uuid.ps1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/.package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/jsonwebtoken/CHANGELOG.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/jsonwebtoken/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/jsonwebtoken/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/jsonwebtoken/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/jsonwebtoken/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/jsonwebtoken/node_modules/.bin/semver" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/jsonwebtoken/node_modules/.bin/semver.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/jsonwebtoken/node_modules/.bin/semver.ps1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/jsonwebtoken/node_modules/semver/CHANGELOG.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/jsonwebtoken/node_modules/semver/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/jsonwebtoken/node_modules/semver/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/jsonwebtoken/node_modules/semver/bin/semver" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/jsonwebtoken/node_modules/semver/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/jsonwebtoken/node_modules/semver/range.bnf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/jsonwebtoken/node_modules/semver/semver.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/jsonwebtoken/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/jsonwebtoken/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/jsonwebtoken/sign.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/jsonwebtoken/sign.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/jsonwebtoken/verify.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/jsonwebtoken/verify.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/lodash.includes/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/lodash.includes/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/lodash.includes/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/lodash.includes/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/lodash.isboolean/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/lodash.isboolean/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/lodash.isboolean/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/lodash.isboolean/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/lodash.isinteger/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/lodash.isinteger/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/lodash.isinteger/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/lodash.isinteger/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/lodash.isnumber/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/lodash.isnumber/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/lodash.isnumber/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/lodash.isnumber/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/lodash.isplainobject/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/lodash.isplainobject/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/lodash.isplainobject/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/lodash.isplainobject/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/lodash.isstring/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/lodash.isstring/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/lodash.isstring/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/lodash.isstring/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/lodash.once/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/lodash.once/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/lodash.once/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/lodash.once/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/uploads/profile-1669028572500.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/api/productsApi.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/api/productsApi.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/NewProductArrivals.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/NewProductArrivals.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/ProductCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/ProductCard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/dashboard/vendor/product/listed.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/dashboard/vendor/product/listed.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/types/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/types/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/api/controllers/product.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/api/controllers/product.controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/api/models/product.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/api/models/product.model.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/api/routes/sp/vendor.routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/api/routes/sp/vendor.routes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/uploads/productImages-1672134097291.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/uploads/productImages-1672134097307.jpg" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -205,6 +60,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
+    "js.last.introduce.type": "CONST",
     "last_opened_file_path": "C:/Users/Qayyum/Documents/Brackets-Assignments/Project/brackets-project/client/pages/dashboard/designer",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.standard": "true",
@@ -226,11 +82,11 @@
       <recent name="C:\Users\Qayyum\Documents\Brackets-Assignments\Project\brackets-project\server" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Qayyum\Documents\Brackets-Assignments\Project\brackets-project\client\pages\dashboard\vendor\product\edit" />
       <recent name="C:\Users\Qayyum\Documents\Brackets-Assignments\Project\brackets-project\server\uploads" />
       <recent name="C:\Users\Qayyum\Documents\Brackets-Assignments\Project\brackets-project\client\pages\dashboard\customer\profile" />
       <recent name="C:\Users\Qayyum\Documents\Brackets-Assignments\Project\brackets-project\client\pages\verify" />
       <recent name="C:\Users\Qayyum\Documents\Brackets-Assignments\Project\brackets-project\client\components\application" />
-      <recent name="C:\Users\Qayyum\Documents\Brackets-Assignments\Project\brackets-project\client\pages\dashboard\vendor" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -251,6 +107,8 @@
       <workItem from="1671076709414" duration="66830000" />
       <workItem from="1671310971400" duration="81938000" />
       <workItem from="1671595741581" duration="277817000" />
+      <workItem from="1672153495806" duration="1818000" />
+      <workItem from="1672287115373" duration="23181000" />
     </task>
     <servers />
   </component>

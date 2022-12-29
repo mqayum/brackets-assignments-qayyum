@@ -88,7 +88,14 @@ export interface IProduct{
     productPrice: string,
     productDesc: string,
     productImages: string[],
+    productRating?: number,
+    productId?: string,
+    vendor?: IVendorObj
 }
 export type TGetProducts = TMessage & {
     products: IProduct[];
 }
+export type TGetProduct = TMessage & {
+    product: IProduct;
+}
+export type ID = string|string[]|undefined
